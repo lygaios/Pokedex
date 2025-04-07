@@ -1,0 +1,11 @@
+#Zeilen mit Raute werden nicht von Maschinen gelesen
+#Verbieten aller rechtlichen Maschinen
+
+User-agent: *
+Disallow: /dateiname.html
+
+z.B.
+Disallow: /agb.html
+Disallow: /impressum.html
+Disallow: /datenschutz.html
+Disallow: /widerruf.html

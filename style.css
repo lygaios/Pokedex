@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url(./assets/fonts/Raleway-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Expletus Sans", sans-serif;
+  src: url(./assets/fonts/ExpletusSans-VariableFont_wght.ttf);
+}
+
+h1 {
+  font-family: "Expletus Sans", sans-serif;
+}
+
+h2 {
+  font-family: "Expletus Sans", sans-serif;
+}
+
+@media (max-width: 700px) {
+  .hidemobile {
+    display: none;
+  }
+}
+
+@media (min-width: 701px) {
+  .hidedesktop {
+    display: none;
+  }
+}
