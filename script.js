@@ -2,7 +2,7 @@ let currentOffset = 0;
 const limit = 20;
 
 function init() {
-  getDexData();
+    getDexData(currentOffset, limit);
 }
 
 async function getData(soughtPokemon) {
@@ -53,7 +53,7 @@ async function getDexData(offset = 0, limit = 20) {
 
 async function renderCollection(pokeCollection) {
   let contentContainer = document.getElementById("pokedex");
-  contentContainer.innerHTML = "";
+
 
   for (let i = 0; i < 20; i++) {
     let pokemonEntry = pokeCollection.results[i];
