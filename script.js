@@ -16,19 +16,16 @@ function renderSoughtPokemon(currentSearch) {
   let contentContainer = document.getElementById("search-result");
   let currentObject = currentSearch.synsets;
   contentContainer.innerHTML = "";
-    contentContainer.innerHTML = /*html*/ `
+  contentContainer.innerHTML = /*html*/ `
         <div class="found-pokemon">
             <h3>You found:</h3>
-            <h3 class="capitalize">${currentSearch.name}</h3>
-            <img src="${currentSearch.sprites.front_default}" alt="${currentSearch.name}">
-            <p>Height: ${currentSearch.height}</p>
-            <p>Weight: ${currentSearch.weight}</p>
+            <div class= "card dexCard">
+                <h3 class="capitalize">${currentSearch.name}</h3>
+                <img src="${currentSearch.sprites.front_default}" alt="${currentSearch.name}">
+                <p>Height: ${currentSearch.height}</p>
+                <p>Weight: ${currentSearch.weight}</p>
+            </div>
         </div>`;
-  for (let i = 0; i < currentObject.length; i++) {
-    let foundPokemon = currentObject[i].name;
-    console.log(foundPokemon);
-    let printableResult = foundPokemon.name;
-  }
 }
 
 function sendSearch() {
@@ -37,29 +34,8 @@ function sendSearch() {
 }
 
 function renderLoadingScreen() {
-    let contentContainer = document.getElementById("pokedex");
-    contentContainer.innerHTML = /*html*/ `
+  let contentContainer = document.getElementById("pokedex");
+  contentContainer.innerHTML = /*html*/ `
         <div class="loading">Loading...</div>
     `;
 }
-
-function renderPokegallery() {
-    let contentContainer = document.getElementById("pokedex");
-    contentContainer.innerHTML = "";
-    contentContainer.innerHTML = /*html*/`
-        
-    `
-}
-
-function render() {
-    for (let i = 1; i < photos.length + 1; i++) {
-      document.getElementById("gallery").innerHTML += renderGallery(i);
-    }
-  }
-  
-  function renderGallery(i) {
-    return `
-   <div class="photosquare">
-      <img class="photopreview" onclick="showDetail(${i})" src="./img/${i}.jpg" alt"photo ${i}">
-    </div>`;
-  }

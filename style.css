@@ -28,6 +28,7 @@ body {
 
 #search-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -36,6 +37,14 @@ body {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.dexCard {
+
+}
+
+.detailCard {
+  
 }
 
 @media (max-width: 700px) {
