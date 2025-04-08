@@ -1,3 +1,6 @@
+let currentOffset = 0;
+const limit = 20;
+
 function init() {
   getDexData();
 }
@@ -35,10 +38,10 @@ function renderLoadingScreen() {
   contentContainer.innerHTML = "";
 }
 
-async function getDexData() {
+async function getDexData(offset = 0, limit = 20) {
   try {
     renderLoadingScreen();
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=100&offset=0`;
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
     let response = await fetch(url);
     let responseToJson = await response.json();
     console.log(responseToJson);
