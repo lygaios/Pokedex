@@ -26,6 +26,14 @@ body {
   color: #fef7eb;
 }
 
+#search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 700px) {
   .hidemobile {
     display: none;
