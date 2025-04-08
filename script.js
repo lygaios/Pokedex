@@ -98,3 +98,9 @@ function errorCardTemplate() {
         <p>This Pokémon is hiding and won't come out.</p>
       </div>`;
 }
+
+function loadMore() {
+    currentOffset += limit;
+    getDexData(currentOffset, limit);
+  }
+  
