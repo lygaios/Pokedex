@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  color: #7dfdde;
 }
 
 #button-bar {
@@ -15,24 +14,22 @@
 .button {
   padding: 5px;
   border-radius: 5px;
-  background-color: #08231c;
-  border: solid 1px #4bcfab;
-  color: #4bcfab;
+  background-color: #efd007;
+  border: outset 1px #ff8000;
+  color: #001ea1;
   cursor: pointer;
 }
 
 .button:hover {
-  box-shadow: 0 0 20px #7dfdde;
-  border: solid 1px #7dfdde;
-  color: #7dfdde;
+  box-shadow: 0 0 5px #bf1f30;
+  border: inset 1px #b41324;
+  color: #001ea1;
 }
 
 .content-box {
   padding: 5px;
   border-radius: 5px;
-  background-color: #08090b;
-  border: solid 1px #4bcfab;
-  color: #7dfdde;
+  border: solid 1px #1d7bff;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -43,14 +40,33 @@
   padding: 5px;
   box-sizing: border-box;
   border-radius: 5px;
-  background-color: #08231c;
-  border: solid 1px #4bcfab;
-  color: #4bcfab;
+  background-color: #001ea1;
+  border: solid 1px #0947a7;
   transition: border-color 0.3s ease;
+  color: #fef7eb;
 }
 
 .text-input:focus {
-  box-shadow: 0 0 20px #4bcfab;
-  border: solid 1px #4bcfab;
+  box-shadow: 0 0 5px #1d7bff;
+  border: solid 1px #1d7bff;
+  color: #fef7eb;
   outline: none;
+}
+
+.card {
+  width: 25rem;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+#overlay {
+  z-index: 2;
+  height: 100rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
 }

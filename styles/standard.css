@@ -4,8 +4,11 @@ html {
 
 body {
   margin: 0;
-  box-sizing: border-box;
+  box-sizing:border-box;
   font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 a {
@@ -20,16 +23,17 @@ a {
   height: 100px;
   display: flex;
   justify-content: center;
-  gap: 10px;
   align-items: center;
+  text-align: center;
+  gap: 5px;
   flex-wrap: wrap;
-  padding-inline: 40px;
+  padding-inline: 20px;
   margin: 0;
 }
 
 #footer {
   height: 100px;
-  padding-inline: 40px;
+  padding-inline: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,10 +41,12 @@ a {
 
 #main {
   height: calc(100vh - 210px);
-  padding-inline: 40px;
+  max-width: 1440px;
+  padding-inline: 20px;
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 40px;
   overflow-y: auto;
