@@ -20,17 +20,21 @@
     <div id="overlay" class="dnone"></div>
     <section id="main">
       <section id="search-box">
-      <h2>Pokésearch</h2>
-      <div id="searchbar">
-        <form onsubmit="sendSearch(); return false;">
-          <input type="text" class="text-input" id="search-field" placeholder="Find a Pokémon..." />
-          <button class="button" id="search-button">Search</button>
-        </form>
-      </div>
-      <h2>You found:</h2>
-      <div id="search-result"></div>
+        <h2>Pokésearch</h2>
+        <div id="searchbar">
+          <form onsubmit="sendSearch(); return false;">
+            <input type="text" class="text-input" id="search-field" placeholder="Enter Pokémon name or ID" />
+            <button class="button" id="search-button">Search</button>
+          </form>
+        </div>
+
+        <div id="search-result"></div>
+      </section>
+      <section id="pokedex-box">
+        <h2>Your Pokédex</h2>
+        <div id="pokedex"></div>
+        <button class="button" id="load-more-button" onclick="loadMore()">Load more</button>
     </section>
-      <div id="pokedex"></div>
     </section>
 
     <footer id="footer"></footer>
