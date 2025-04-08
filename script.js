@@ -19,7 +19,7 @@ function renderSoughtPokemon(currentSearch) {
     contentContainer.innerHTML = /*html*/ `
         <div class="found-pokemon">
             <h3>You found:</h3>
-            <h3>${currentSearch.name}</h3>
+            <h3 class="capitalize">${currentSearch.name}</h3>
             <img src="${currentSearch.sprites.front_default}" alt="${currentSearch.name}">
             <p>Height: ${currentSearch.height}</p>
             <p>Weight: ${currentSearch.weight}</p>
