@@ -84,20 +84,23 @@ function sendSearch() {
 }
 
 async function getData(soughtPokemon) {
+  closeAndClearOverlay();
   try {
     let url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
     let response = await fetch(url);
-    let pokemon = await response.json();
-
+    if (!response.ok) {
+      throw new Error("Pokémon not found");
+    };
+    let pokemon = await fetchPokemonData(soughtPokemon);
+    if (pokemon.id > 493 || pokemon.id < 1) {
+      renderSearchErrorCard();
+      return;
+    }
     let types = pokemon.types.map((t) => t.type.name).join(", ");
-
-    console.log(pokemon);
     renderSoughtPokemon(pokemon, types);
   } catch (error) {
-    console.error("Error fetching data:", error);
     renderSearchErrorCard();
   }
-
   document.getElementById("search-field").value = "";
 }
 
@@ -143,9 +146,13 @@ async function showDetail(pokemonId) {
 
 function closeDetailOverlay(event) {
   if (event.target.id === "detail-overlay") {
-    const overlay = document.getElementById("detail-overlay");
-    overlay.classList.add("dnone");
-    overlay.innerHTML = "";
-    document.body.classList.remove("noscroll");
+    closeAndClearOverlay();
   }
+}
+
+function closeAndClearOverlay() {
+  const detailOverlay = document.getElementById("detail-overlay");
+  detailOverlay.classList.add("dnone");
+  detailOverlay.innerHTML = "";
+  document.body.classList.remove("noscroll");
 }
