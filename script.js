@@ -2,7 +2,7 @@ let currentOffset = 0;
 const limit = 20;
 
 function init() {
-    getDexData(currentOffset, limit);
+  getDexData(currentOffset, limit);
 }
 
 async function getData(soughtPokemon) {
@@ -10,8 +10,12 @@ async function getData(soughtPokemon) {
     let url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
     let response = await fetch(url);
     let pokemon = await response.json();
+    
+    // Extract types here, same as in renderCollection
+    let types = pokemon.types.map((t, index) => t.type.name).join(", ");
+    
     console.log(pokemon);
-    renderSoughtPokemon(pokemon);
+    renderSoughtPokemon(pokemon, types);
   } catch (error) {
     console.error("Error fetching data:", error);
     renderSearchErrorCard();
@@ -19,10 +23,10 @@ async function getData(soughtPokemon) {
   document.getElementById("search-field").value = "";
 }
 
-function renderSoughtPokemon(pokemon) {
+function renderSoughtPokemon(pokemon, types) {
   let contentContainer = document.getElementById("search-result");
   contentContainer.innerHTML = "";
-  contentContainer.innerHTML = dexCardTemplate(pokemon);
+  contentContainer.innerHTML = dexCardTemplate(pokemon, types);
 }
 
 function sendSearch() {
@@ -33,6 +37,7 @@ function sendSearch() {
 function renderLoadingScreen() {
   let contentContainer = document.getElementById("pokedex");
   contentContainer.innerHTML = /*html*/ `
+        <span class="loader"></span>
         <div class="loading">Loading...</div>
     `;
   contentContainer.innerHTML = "";
@@ -54,29 +59,22 @@ async function getDexData(offset = 0, limit = 20) {
 async function renderCollection(pokeCollection) {
   let contentContainer = document.getElementById("pokedex");
 
-
   for (let i = 0; i < 20; i++) {
     let pokemonEntry = pokeCollection.results[i];
 
     try {
       let response = await fetch(pokemonEntry.url);
       let pokemon = await response.json();
-      contentContainer.innerHTML += dexCardTemplate(pokemon);
+      
+      // Extract types here as well for the collection
+      let types = pokemon.types.map((t, index) => t.type.name).join(", ");
+      
+      contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
       renderDexErrorCard();
     }
   }
-}
-
-function dexCardTemplate(pokemon) {
-  return /*html*/ `
-           <div class="card dex-card" id="${pokemon.id}">
-               <h3 class="capitalize">${pokemon.name}</h3>
-               <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
-               <p>Height: ${pokemon.height}</p>
-               <p>Weight: ${pokemon.weight}</p>
-           </div>`;
 }
 
 function renderSearchErrorCard() {
@@ -100,7 +98,6 @@ function errorCardTemplate() {
 }
 
 function loadMore() {
-    currentOffset += limit;
-    getDexData(currentOffset, limit);
-  }
-  
+  currentOffset += limit;
+  getDexData(currentOffset, limit);
+}
