@@ -104,6 +104,11 @@ body {
   margin-top: 10px;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
+
 @media (max-width: 700px) {
   .hidemobile {
     display: none;

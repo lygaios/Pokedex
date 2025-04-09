@@ -53,7 +53,7 @@ async function renderCollection(pokeCollection) {
       let response = await fetch(pokemonEntry.url);
       let pokemon = await response.json();
 
-      let types = pokemon.types.map((t) => t.type.name).join(", ");
+      let types = pokemon.types.map(t => t.type.name).join(", ");
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
@@ -80,7 +80,7 @@ async function getData(soughtPokemon) {
     let response = await fetch(url);
     let pokemon = await response.json();
 
-    let types = pokemon.types.map((t, index) => t.type.name).join(", ");
+    let types = pokemon.types.map(t => t.type.name).join(", ");
 
     console.log(pokemon);
     renderSoughtPokemon(pokemon, types);
@@ -107,4 +107,22 @@ function renderSearchErrorCard() {
 function renderDexErrorCard() {
   let contentContainer = document.getElementById("pokedex");
   contentContainer.innerHTML += errorCardTemplate();
+}
+
+async function showDetail(pokemonId) {
+  try {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+    const response = await fetch(url);
+    const pokemon = await response.json();
+    const types = pokemon.types.map(t => t.type.name).join(", ");
+
+    const overlay = document.getElementById("detail-overlay");
+    overlay.innerHTML = detailCardTemplate(pokemon, types);
+    overlay.classList.remove("dnone");
+
+    // Disable background scroll
+    document.body.classList.add("noscroll");
+  } catch (error) {
+    console.error("Error loading detail card:", error);
+  }
 }
