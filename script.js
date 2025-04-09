@@ -91,7 +91,7 @@ async function getData(soughtPokemon) {
     if (!response.ok) {
       throw new Error("Pokémon not found");
     }
-    let pokemon = await fetchPokemonData(soughtPokemon);
+    let pokemon = await response.json();
     if (pokemon.id > 493 || pokemon.id < 1) {
       renderSearchErrorCard();
       return;
