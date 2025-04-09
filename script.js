@@ -28,8 +28,9 @@ function hideLoadingScreen() {
 async function getDexData(offset = 0, limit = 20) {
   try {
     renderLoadingScreen();
+    const maxPokemon = 493;
 
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=${Math.min(limit, maxPokemon - offset)}&offset=${offset}`;
     let response = await fetch(url);
     let responseToJson = await response.json();
 
