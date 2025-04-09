@@ -120,9 +120,18 @@ async function showDetail(pokemonId) {
     overlay.innerHTML = detailCardTemplate(pokemon, types);
     overlay.classList.remove("dnone");
 
-    // Disable background scroll
     document.body.classList.add("noscroll");
   } catch (error) {
     console.error("Error loading detail card:", error);
+  }
+}
+
+function closeDetailOverlay(event) {
+  // Only close the overlay if the background was clicked
+  if (event.target.id === "detail-overlay") {
+    const overlay = document.getElementById("detail-overlay");
+    overlay.classList.add("dnone");
+    overlay.innerHTML = "";
+    document.body.classList.remove("noscroll");
   }
 }
