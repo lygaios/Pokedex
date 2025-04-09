@@ -37,25 +37,25 @@ function detailCardTemplate(pokemon, types) {
       </div>`;
 }
 
+function loadingScreenTemplate() {
+  return /*html*/ `
+        <div class="loader"></div>
+        <div class="loading">Loading...</div>
+      `;
+}
+
 function errorCardTemplate() {
   return /*html*/ `
-        <div class="card dex-card error">
+        <div class="card dex-card error" onclick="clearError()>
           <h3>Oh no!</h3>
           <img class="error-img" src="./assets/img/questionmark.png" alt="Question mark">
           <p>This Pokémon is hiding and won't come out.</p>
         </div>`;
 }
 
-function loadingScreenTemplate() {
-  return /*html*/ `
-      <div class="loader"></div>
-      <div class="loading">Loading...</div>
-    `;
-}
-
 function searchEmptyTemplate() {
   return /*html*/ `
-      <div class="card dex-card error">
+      <div class="card dex-card error" onclick="clearError()">
         <p>Please enter a Pokémon name or ID number.</p>
       </div>
     `;
@@ -63,7 +63,7 @@ function searchEmptyTemplate() {
 
 function searchShortTemplate() {
   return /*html*/ `
-      <div class="card dex-card error">
+      <div class="card dex-card error" onclick="clearError()>
         <p>Please enter at least 3 letters. You can also enter an ID number instead.</p>
       </div>
     `;

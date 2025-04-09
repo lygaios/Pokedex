@@ -90,7 +90,7 @@ async function getData(soughtPokemon) {
     let response = await fetch(url);
     if (!response.ok) {
       throw new Error("Pokémon not found");
-    };
+    }
     let pokemon = await fetchPokemonData(soughtPokemon);
     if (pokemon.id > 493 || pokemon.id < 1) {
       renderSearchErrorCard();
@@ -155,4 +155,10 @@ function closeAndClearOverlay() {
   detailOverlay.classList.add("dnone");
   detailOverlay.innerHTML = "";
   document.body.classList.remove("noscroll");
+}
+
+function clearError() {
+  let contentContainer = document.getElementById("search-result");
+  contentContainer.innerHTML = "";
+  document.getElementById("search-field").value = "";
 }
