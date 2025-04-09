@@ -17,19 +17,17 @@
     <header id="header">
       <img class="logo" src="./assets/icons/176.png" alt="Togetic" />
       <h1>Pokédex</h1>
+      <div id="searchbar">
+        <form onsubmit="sendSearch(); return false;">
+          <input type="text" class="text-input" id="search-field" placeholder="Enter Pokémon name or ID" />
+          <button class="button" id="search-button">Search</button>
+        </form>
+      </div>
     </header>
     <div id="loading-overlay" class="overlay dnone"></div>
     <div id="detail-overlay" class="overlay dnone" onclick="closeDetailOverlay(event)"></div>
     <section id="main">
       <section id="search-box">
-        <h2>Pokésearch</h2>
-        <div id="searchbar">
-          <form onsubmit="sendSearch(); return false;">
-            <input type="text" class="text-input" id="search-field" placeholder="Enter Pokémon name or ID" />
-            <button class="button" id="search-button">Search</button>
-          </form>
-        </div>
-
         <div id="search-result"></div>
       </section>
       <section id="pokedex-box">

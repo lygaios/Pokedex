@@ -24,20 +24,22 @@ a {
 }
 
 #header {
-  height: 100px;
+  min-height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 5px;
+  gap: 10px;
   flex-wrap: wrap;
-  padding-inline: 20px;
+  padding-inline: 10px;
   margin: 0;
 }
 
 #footer {
   height: 100px;
-  padding-inline: 20px;
+  padding-inline: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +49,7 @@ a {
   flex-grow: 1;
   max-width: 1440px;
   width: 100%;
-  padding-inline: 20px;
+  padding-inline: 10px;
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
