@@ -52,3 +52,19 @@ function loadingScreenTemplate() {
       <div class="loading">Loading...</div>
     `;
 }
+
+function searchEmptyTemplate() {
+  return /*html*/ `
+      <div class="card dex-card error">
+        <p>Please enter a Pokémon name or ID number.</p>
+      </div>
+    `;
+}
+
+function searchShortTemplate() {
+  return /*html*/ `
+      <div class="card dex-card error">
+        <p>Please enter at least 3 letters. You can also enter an ID number instead.</p>
+      </div>
+    `;
+}

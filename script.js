@@ -69,7 +69,17 @@ function loadMore() {
 }
 
 function sendSearch() {
-  let soughtPokemon = document.getElementById("search-field").value;
+  let soughtPokemon = document.getElementById("search-field").value.trim().toLowerCase();
+  let contentContainer = document.getElementById("search-result");
+  contentContainer.innerHTML = "";
+  if (!soughtPokemon) {
+    renderSearchErrorMessage(searchEmptyTemplate);
+    return;
+  }
+  if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
+    renderSearchErrorMessage(searchShortTemplate);
+    return;
+  }
   getData(soughtPokemon);
 }
 
@@ -95,6 +105,12 @@ function renderSoughtPokemon(pokemon, types) {
   let contentContainer = document.getElementById("search-result");
   contentContainer.innerHTML = "";
   contentContainer.innerHTML = dexCardTemplate(pokemon, types);
+}
+
+function renderSearchErrorMessage(searchErrorMessage) {
+  let contentContainer = document.getElementById("search-result");
+  contentContainer.innerHTML = "";
+  contentContainer.innerHTML = searchErrorMessage();
 }
 
 function renderSearchErrorCard() {
@@ -126,7 +142,6 @@ async function showDetail(pokemonId) {
 }
 
 function closeDetailOverlay(event) {
-  // Only close the overlay if the background was clicked
   if (event.target.id === "detail-overlay") {
     const overlay = document.getElementById("detail-overlay");
     overlay.classList.add("dnone");
