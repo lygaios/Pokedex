@@ -14,16 +14,14 @@ function renderLoadingScreen() {
   document.getElementById("load-more-button").disabled = true;
 }
 
-
 function hideLoadingScreen() {
   let loadingOverlay = document.getElementById("loading-overlay");
 
   loadingOverlay.classList.add("dnone");
-  loadingOverlay.innerHTML = ""; 
+  loadingOverlay.innerHTML = "";
 
   document.getElementById("load-more-button").disabled = false;
 }
-
 
 async function getDexData(offset = 0, limit = 20) {
   try {
@@ -54,7 +52,7 @@ async function renderCollection(pokeCollection) {
       let response = await fetch(pokemonEntry.url);
       let pokemon = await response.json();
 
-      let types = pokemon.types.map(t => t.type.name).join(", ");
+      let types = pokemon.types.map((t) => t.type.name).join(", ");
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
@@ -81,7 +79,7 @@ async function getData(soughtPokemon) {
     let response = await fetch(url);
     let pokemon = await response.json();
 
-    let types = pokemon.types.map(t => t.type.name).join(", ");
+    let types = pokemon.types.map((t) => t.type.name).join(", ");
 
     console.log(pokemon);
     renderSoughtPokemon(pokemon, types);
@@ -115,7 +113,7 @@ async function showDetail(pokemonId) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     const response = await fetch(url);
     const pokemon = await response.json();
-    const types = pokemon.types.map(t => t.type.name).join(", ");
+    const types = pokemon.types.map((t) => t.type.name).join(", ");
 
     const overlay = document.getElementById("detail-overlay");
     overlay.innerHTML = detailCardTemplate(pokemon, types);
