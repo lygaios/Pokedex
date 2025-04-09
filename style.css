@@ -65,6 +65,24 @@ body {
   box-shadow: 0 0 5px #bf1f30;
 }
 
+#loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+#detail-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
 @media (max-width: 700px) {
   .hidemobile {
     display: none;

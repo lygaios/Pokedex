@@ -10,10 +10,9 @@ async function getData(soughtPokemon) {
     let url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
     let response = await fetch(url);
     let pokemon = await response.json();
-    
-    // Extract types here, same as in renderCollection
+
     let types = pokemon.types.map((t, index) => t.type.name).join(", ");
-    
+
     console.log(pokemon);
     renderSoughtPokemon(pokemon, types);
   } catch (error) {
@@ -65,10 +64,9 @@ async function renderCollection(pokeCollection) {
     try {
       let response = await fetch(pokemonEntry.url);
       let pokemon = await response.json();
-      
-      // Extract types here as well for the collection
+
       let types = pokemon.types.map((t, index) => t.type.name).join(", ");
-      
+
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
@@ -86,15 +84,6 @@ function renderSearchErrorCard() {
 function renderDexErrorCard() {
   let contentContainer = document.getElementById("pokedex");
   contentContainer.innerHTML += errorCardTemplate();
-}
-
-function errorCardTemplate() {
-  return /*html*/ `
-      <div class="card dex-card error">
-        <h3>"Oh no!"</h3>
-        <img class="error-img" src="./assets/img/questionmark.png" alt="Question mark">
-        <p>This Pokémon is hiding and won't come out.</p>
-      </div>`;
 }
 
 function loadMore() {
