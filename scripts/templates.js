@@ -32,3 +32,11 @@ function errorCardTemplate() {
           <p>This Pokémon is hiding and won't come out.</p>
         </div>`;
 }
+
+function loadingScreenTemplate() {
+    return /*html*/ `
+      <div class="loader"></div>
+      <div class="loading">Loading...</div>
+    `;
+  }
+  

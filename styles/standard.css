@@ -1,15 +1,18 @@
-html {
+html,
+body {
   scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  box-sizing:border-box;
-  font-family: "Raleway", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 a {
@@ -17,7 +20,7 @@ a {
 }
 
 .dnone {
-  display: none;
+  display: none !important;
 }
 
 #header {
@@ -41,8 +44,9 @@ a {
 }
 
 #main {
-  height: calc(100vh - 210px);
+  flex-grow: 1;
   max-width: 1440px;
+  width: 100%;
   padding-inline: 20px;
   padding-bottom: 10px;
   display: flex;
@@ -50,8 +54,8 @@ a {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  overflow-y: auto;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .logo {
