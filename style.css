@@ -3,10 +3,6 @@
   src: url(./assets/fonts/Raleway-VariableFont_wght.ttf);
 }
 
-@font-face {
-  font-family: "Expletus Sans", sans-serif;
-  src: url(./assets/fonts/ExpletusSans-VariableFont_wght.ttf);
-}
 
 @font-face {
   font-family: "Orbitron", sans-serif;
