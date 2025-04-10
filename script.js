@@ -1,8 +1,12 @@
+let pokemonNames = [];
+
 let currentOffset = 0;
 const limit = 20;
 
 function init() {
+  loadPokemonNames();
   getDexData(currentOffset, limit);
+  getAutocompleteSearch();
 }
 
 function toggleLoadingScreen(isVisible) {
@@ -20,13 +24,38 @@ function toggleLoadingScreen(isVisible) {
   }
 }
 
-
 function renderLoadingScreen() {
   toggleLoadingScreen(true);
 }
 
 function hideLoadingScreen() {
   toggleLoadingScreen(false);
+}
+
+async function loadPokemonNames() {
+  const maxPokemon = 493;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=${maxPokemon}&offset=0`;
+  const response = await fetch(url);
+  const data = await response.json();
+  pokemonNames = data.results.map((p) => p.name);
+}
+
+function getAutocompleteSearch() {
+  const searchField = document.getElementById("search-field");
+  searchField.addEventListener("input", autocompleteSearch);
+}
+
+function autocompleteSearch() {
+  const searchField = document.getElementById("search-field");
+  const input = searchField.value.toLowerCase();
+
+  if (!input || input.length < 3) return;
+
+  const match = pokemonNames.find((name) => name.startsWith(input));
+  if (match) {
+    searchField.value = match;
+    searchField.setSelectionRange(input.length, match.length);
+  }
 }
 
 async function getDexData(offset = 0, limit = 20) {

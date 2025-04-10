@@ -4,7 +4,7 @@ function dexCardTemplate(pokemon, types) {
   return /*html*/ `
       <div class="card dex-card ${firstType}" id="${pokemon.id}" onclick="showDetail(${pokemon.id})">
           <h3 class="capitalize">${pokemon.name}</h3>
-          <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+          <img class="poke-image" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
           <p>ID: ${pokemon.id}</p>
           <p class="capitalize">${types}</p>
       </div>`;
@@ -21,7 +21,7 @@ function detailCardTemplate(pokemon, types) {
   return /*html*/ `
       <div class="card dex-card ${firstType}" id="${pokemon.id}">
         <h3 class="capitalize">${pokemon.name}</h3>
-        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+        <img class="poke-image" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
         <p>ID: ${pokemon.id}</p>
         <p class="capitalize">${types}</p>
         <p>HP: ${hp}</p>
