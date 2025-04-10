@@ -31,12 +31,9 @@ async function getDexData(offset = 0, limit = 20) {
     let url = `https://pokeapi.co/api/v2/pokemon?limit=${Math.min(limit, maxPokemon - offset)}&offset=${offset}`;
     let response = await fetch(url);
     let responseToJson = await response.json();
-
-    console.log(responseToJson);
-
     await renderCollection(responseToJson);
   } catch (error) {
-    console.error("Error fetching data:", error);
+    renderDexErrorCard();
   } finally {
     hideLoadingScreen();
   }
@@ -51,11 +48,9 @@ async function renderCollection(pokeCollection) {
     try {
       const response = await fetch(pokemonEntry.url);
       const pokemon = await response.json();
-
       const types = pokemon.types.map((t) => t.type.name).join(", ");
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
-      console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
       renderDexErrorCard();
     }
   }
@@ -128,14 +123,12 @@ async function showDetail(pokemonId) {
     const response = await fetch(url);
     const pokemon = await response.json();
     const types = pokemon.types.map((t) => t.type.name).join(", ");
-
     const overlay = document.getElementById("detail-overlay");
     overlay.innerHTML = detailCardTemplate(pokemon, types);
     overlay.classList.remove("dnone");
-
     document.body.classList.add("noscroll");
   } catch (error) {
-    console.error("Error loading detail card:", error);
+    renderSearchErrorCard();
   }
 }
 
