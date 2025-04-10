@@ -149,6 +149,6 @@ body {
 
 @media (max-width: 350px) {
   .detail-card {
-    width: 150px;
+    width: 280px;
   }
 }
