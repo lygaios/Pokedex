@@ -4,8 +4,8 @@ let currentOffset = 0;
 const limit = 20;
 
 function init() {
-  loadPokemonNames();
   getDexData(currentOffset, limit);
+  loadPokemonNames();
   getAutocompleteSearch();
 }
 
