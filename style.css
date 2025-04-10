@@ -94,7 +94,6 @@ body {
 }
 
 .overlay {
-  z-index: 2;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -108,6 +107,7 @@ body {
 }
 
 #loading-overlay {
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +117,7 @@ body {
 }
 
 #detail-overlay {
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

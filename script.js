@@ -151,6 +151,7 @@ function renderDexErrorCard() {
 
 async function showDetail(pokemonId) {
   try {
+    renderLoadingScreen();
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     const response = await fetch(url);
     const pokemon = await response.json();
@@ -161,6 +162,8 @@ async function showDetail(pokemonId) {
     document.body.classList.add("noscroll");
   } catch (error) {
     renderSearchErrorCard();
+  } finally {
+    hideLoadingScreen();
   }
 }
 
