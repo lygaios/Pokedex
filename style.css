@@ -53,11 +53,16 @@ body {
 }
 
 .dex-card:hover {
+  box-shadow: 0 0 5px #efd007;
+  border: inset 3px #efd007;
+}
+
+.detail-card {
   box-shadow: 0 0 5px #bf1f30;
   border: inset 3px #b41324;
 }
 
-.detail-card {
+.error {
   box-shadow: 0 0 5px #bf1f30;
   border: inset 3px #b41324;
 }
@@ -68,7 +73,6 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 5px #bf1f30;
 }
-
 
 .overlay {
   z-index: 2;

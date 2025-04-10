@@ -15,15 +15,15 @@
   padding: 5px;
   border-radius: 5px;
   background-color: #efd007;
-  border: outset 3px #ff8000;
+  border: outset 3px #fae352;
   color: #001ea1;
   cursor: pointer;
   font-family: "Orbitron", sans-serif;
 }
 
 .button:hover {
-  box-shadow: 0 0 5px #bf1f30;
-  border: inset 3px #b41324;
+  box-shadow: 0 0 5px #fae352;
+  border: inset 3px #fae352;
   color: #001ea1;
 }
 

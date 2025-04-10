@@ -52,11 +52,11 @@ async function renderCollection(pokeCollection) {
       const response = await fetch(pokemonEntry.url);
       const pokemon = await response.json();
 
-      const types = pokemon.types.map(t => t.type.name).join(", ");
+      const types = pokemon.types.map((t) => t.type.name).join(", ");
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
-      renderDexErrorCard()
+      renderDexErrorCard();
     }
   }
   hideLoadingScreen();
@@ -75,8 +75,7 @@ function sendSearch() {
     renderSearchErrorMessage(searchEmptyTemplate);
   } else if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
     renderSearchErrorMessage(searchShortTemplate);
-  } else
-  getData(soughtPokemon);
+  } else getData(soughtPokemon);
 }
 
 async function getData(soughtPokemon) {
@@ -86,7 +85,7 @@ async function getData(soughtPokemon) {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Pokémon not found");
-    };
+    }
     const pokemon = await response.json();
     if (pokemon.id > 493 || pokemon.id < 1) {
       renderSearchErrorCard();
