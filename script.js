@@ -119,19 +119,23 @@ async function getData(soughtPokemon) {
 async function showDetail(pokemonId) {
   try {
     toggleLoadingScreen(true);
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-    const response = await fetch(url);
-    const pokemon = await response.json();
-    const types = pokemon.types.map((t) => t.type.name).join(", ");
-    const overlay = document.getElementById("detail-overlay");
-    overlay.innerHTML = detailCardTemplate(pokemon, types);
-    overlay.classList.remove("dnone");
-    document.body.classList.add("noscroll");
+    getDetailData(pokemonId);
   } catch (error) {
     renderSearchErrorCard();
   } finally {
     toggleLoadingScreen(false);
   }
+}
+
+async function getDetailData(pokemonId) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+  const response = await fetch(url);
+  const pokemon = await response.json();
+  const types = pokemon.types.map((t) => t.type.name).join(", ");
+  const overlay = document.getElementById("detail-overlay");
+  overlay.innerHTML = detailCardTemplate(pokemon, types);
+  overlay.classList.remove("dnone");
+  document.body.classList.add("noscroll");
 }
 
 function closeDetailOverlay(event) {
