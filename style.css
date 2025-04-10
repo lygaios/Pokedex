@@ -17,6 +17,7 @@ h1,
 h2,
 h3 {
   font-family: "Orbitron", sans-serif;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.9);
 }
 
 body {
@@ -81,8 +82,8 @@ body {
 }
 
 .error {
-  border: inset 3px #bf1f30;
-  filter: drop-shadow(3px 3px 5px rgba(121, 14, 25, 0.87));
+  box-shadow: 0 0 5px #a11927;
+  border: outset 3px #bf1f30;
 }
 
 .error:hover {
@@ -94,11 +95,12 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  box-shadow: 3px 3px 5px #790e19;
+  filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.9));
+  box-shadow: 2px 2px 4px #790e19;
 }
 
 .poke-image {
-  filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.9));
 }
 
 .overlay {
