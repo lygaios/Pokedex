@@ -19,7 +19,7 @@ function detailCardTemplate(pokemon, types) {
   const nextButton = pokemon.id < 493 ? `<button class="button" onclick="showDetail(${pokemon.id + 1})">></button>` : "";
 
   return /*html*/ `
-      <div class="card dex-card ${firstType}" id="${pokemon.id}">
+      <div class="card detail-card ${firstType}" id="${pokemon.id}">
         <h3 class="capitalize">${pokemon.name}</h3>
         <img class="poke-image" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
         <p>ID: ${pokemon.id}</p>

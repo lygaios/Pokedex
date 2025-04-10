@@ -57,33 +57,44 @@ body {
 }
 
 .dex-card {
-  width: 220px;
-  height: auto;
   aspect-ratio: 3 / 2;
+  width: 220px;
   box-shadow: 0 0 5px #1d7bff;
   border: outset 3px #1d7bff;
 }
 
 .dex-card:hover {
-  box-shadow: 0 0 5px #efd007;
+  box-shadow: 0 0 5px #d6bb07;
   border: inset 3px #efd007;
 }
 
 .detail-card {
-  box-shadow: 0 0 5px #bf1f30;
-  border: inset 3px #b41324;
+  aspect-ratio: 3 / 2;
+  width: 220px;
+  box-shadow: 0 0 5px #169c07;
+  border: inset 3px #24d80f;
+}
+
+.detail-card:hover {
+  box-shadow: 0 0 5px #d6bb07;
+  border: inset 3px #efd007;
 }
 
 .error {
-  box-shadow: 0 0 5px #bf1f30;
-  border: inset 3px #b41324;
+  box-shadow: 0 0 5px #790e19;
+  border: inset 3px #bf1f30;
+}
+
+.error:hover {
+  box-shadow: 0 0 5px #da5802;
+  border: inset 3px #f88502;
 }
 
 .error-img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  box-shadow: 3px 3px 5px #bf1f30;
+  box-shadow: 3px 3px 5px #790e19;
 }
 
 .poke-image {
@@ -143,10 +154,18 @@ body {
   .dex-card {
     width: 180px;
   }
+
+  .detail-card {
+    width: 180px;
+  }
 }
 
 @media (max-width: 480px) {
   .dex-card {
+    width: 140px;
+  }
+
+  .detail-card {
     width: 140px;
   }
 }
