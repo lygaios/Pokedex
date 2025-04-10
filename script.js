@@ -60,7 +60,6 @@ async function renderCollection(pokeCollection) {
       renderDexErrorCard();
     }
   }
-  hideLoadingScreen();
 }
 
 function loadMore() {
