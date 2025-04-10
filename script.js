@@ -102,7 +102,7 @@ async function getData(soughtPokemon) {
 function renderSearchAnswer(theAnswer) {
   let contentContainer = document.getElementById("search-result");
   contentContainer.innerHTML = "";
-  contentContainer.innerHTML += theAnswer;
+  contentContainer.innerHTML = theAnswer;
 }
 
 function renderSoughtPokemon(pokemon, types) {
