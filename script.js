@@ -1,5 +1,4 @@
 let pokemonNames = [];
-
 let currentOffset = 0;
 const limit = 20;
 
@@ -51,7 +50,6 @@ async function getDexData(offset = 0, limit = 20) {
   try {
     toggleLoadingScreen(true);
     const maxPokemon = 493;
-
     let url = `https://pokeapi.co/api/v2/pokemon?limit=${Math.min(limit, maxPokemon - offset)}&offset=${offset}`;
     let response = await fetch(url);
     let responseToJson = await response.json();
@@ -118,32 +116,9 @@ async function getData(soughtPokemon) {
   document.getElementById("search-field").value = "";
 }
 
-function renderSearchAnswer(theAnswer) {
-  let contentContainer = document.getElementById("search-result");
-  contentContainer.innerHTML = "";
-  contentContainer.innerHTML = theAnswer;
-}
-
-function renderSoughtPokemon(pokemon, types) {
-  renderSearchAnswer(dexCardTemplate(pokemon, types));
-}
-
-function renderSearchErrorMessage(searchErrorMessage) {
-  renderSearchAnswer(searchErrorMessage());
-}
-
-function renderSearchErrorCard() {
-  renderSearchAnswer(errorCardTemplate());
-}
-
-function renderDexErrorCard() {
-  let contentContainer = document.getElementById("pokedex");
-  contentContainer.innerHTML += errorCardTemplate();
-}
-
 async function showDetail(pokemonId) {
   try {
-    toggleLoadingScreen(true)
+    toggleLoadingScreen(true);
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     const response = await fetch(url);
     const pokemon = await response.json();
@@ -176,4 +151,27 @@ function clearError() {
   let contentContainer = document.getElementById("search-result");
   contentContainer.innerHTML = "";
   document.getElementById("search-field").value = "";
+}
+
+function renderSearchAnswer(theAnswer) {
+  let contentContainer = document.getElementById("search-result");
+  contentContainer.innerHTML = "";
+  contentContainer.innerHTML = theAnswer;
+}
+
+function renderSoughtPokemon(pokemon, types) {
+  renderSearchAnswer(dexCardTemplate(pokemon, types));
+}
+
+function renderSearchErrorMessage(searchErrorMessage) {
+  renderSearchAnswer(searchErrorMessage());
+}
+
+function renderSearchErrorCard() {
+  renderSearchAnswer(errorCardTemplate());
+}
+
+function renderDexErrorCard() {
+  let contentContainer = document.getElementById("pokedex");
+  contentContainer.innerHTML += errorCardTemplate();
 }
