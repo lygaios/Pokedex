@@ -27,6 +27,13 @@
   color: #001ea1;
 }
 
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  border: outset 3px #aaa;
+  box-shadow: none;
+}
+
 .content-box {
   padding: 5px;
   border-radius: 5px;

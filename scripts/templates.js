@@ -15,8 +15,8 @@ function detailCardTemplate(pokemon, types) {
   const hp = pokemon.stats.find((s) => s.stat.name === "hp")?.base_stat;
   const attack = pokemon.stats.find((s) => s.stat.name === "attack")?.base_stat;
   const defense = pokemon.stats.find((s) => s.stat.name === "defense")?.base_stat;
-  const previousButton = pokemon.id > 1 ? `<button class="button" onclick="showDetail(${pokemon.id - 1})"><</button>` : "";
-  const nextButton = pokemon.id < 493 ? `<button class="button" onclick="showDetail(${pokemon.id + 1})">></button>` : "";
+  const previousButton = `<button class="button" onclick="showDetail(${pokemon.id - 1})" ${pokemon.id == 1 ? "disabled" : ""}> < </button>`;
+  const nextButton = `<button class="button" onclick="showDetail(${pokemon.id + 1})" ${pokemon.id == 493 ? "disabled" : ""}> > </button>`;
 
   return /*html*/ `
       <div class="card detail-card ${firstType}" id="${pokemon.id}">
