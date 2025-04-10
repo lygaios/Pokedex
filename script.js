@@ -99,22 +99,22 @@ async function getData(soughtPokemon) {
   document.getElementById("search-field").value = "";
 }
 
-function renderSoughtPokemon(pokemon, types) {
+function renderSearchAnswer(theAnswer) {
   let contentContainer = document.getElementById("search-result");
   contentContainer.innerHTML = "";
-  contentContainer.innerHTML = dexCardTemplate(pokemon, types);
+  contentContainer.innerHTML += theAnswer;
+}
+
+function renderSoughtPokemon(pokemon, types) {
+  renderSearchAnswer(dexCardTemplate(pokemon, types));
 }
 
 function renderSearchErrorMessage(searchErrorMessage) {
-  let contentContainer = document.getElementById("search-result");
-  contentContainer.innerHTML = "";
-  contentContainer.innerHTML = searchErrorMessage();
+  renderSearchAnswer(searchErrorMessage());
 }
 
 function renderSearchErrorCard() {
-  let contentContainer = document.getElementById("search-result");
-  contentContainer.innerHTML = "";
-  contentContainer.innerHTML += errorCardTemplate();
+  renderSearchAnswer(errorCardTemplate());
 }
 
 function renderDexErrorCard() {
