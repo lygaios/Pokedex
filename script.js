@@ -5,22 +5,28 @@ function init() {
   getDexData(currentOffset, limit);
 }
 
+function toggleLoadingScreen(isVisible) {
+  const loadingOverlay = document.getElementById("loading-overlay");
+  const loadMoreButton = document.getElementById("load-more-button");
+
+  if (isVisible) {
+    loadingOverlay.innerHTML = loadingScreenTemplate();
+    loadingOverlay.classList.remove("dnone");
+    loadMoreButton.disabled = true;
+  } else {
+    loadingOverlay.classList.add("dnone");
+    loadingOverlay.innerHTML = "";
+    loadMoreButton.disabled = false;
+  }
+}
+
+
 function renderLoadingScreen() {
-  let loadingOverlay = document.getElementById("loading-overlay");
-
-  loadingOverlay.innerHTML = loadingScreenTemplate();
-  loadingOverlay.classList.remove("dnone");
-
-  document.getElementById("load-more-button").disabled = true;
+  toggleLoadingScreen(true);
 }
 
 function hideLoadingScreen() {
-  let loadingOverlay = document.getElementById("loading-overlay");
-
-  loadingOverlay.classList.add("dnone");
-  loadingOverlay.innerHTML = "";
-
-  document.getElementById("load-more-button").disabled = false;
+  toggleLoadingScreen(false);
 }
 
 async function getDexData(offset = 0, limit = 20) {
