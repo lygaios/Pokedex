@@ -48,9 +48,7 @@ function getAutocompleteSearch() {
 function autocompleteSearch() {
   const searchField = document.getElementById("search-field");
   const input = searchField.value.toLowerCase();
-
   if (!input || input.length < 3) return;
-
   const match = pokemonNames.find((name) => name.startsWith(input));
   if (match) {
     searchField.value = match;
@@ -104,6 +102,8 @@ function sendSearch() {
     renderSearchErrorMessage(searchEmptyTemplate);
   } else if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
     renderSearchErrorMessage(searchShortTemplate);
+  } else if (!pokemonNames.includes(soughtPokemon)) {
+    renderSearchErrorCard();
   } else getData(soughtPokemon);
 }
 
@@ -113,7 +113,8 @@ async function getData(soughtPokemon) {
     const url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error("Pokémon not found");
+      renderSearchErrorCard();
+      return;
     }
     const pokemon = await response.json();
     if (pokemon.id > 493 || pokemon.id < 1) {
