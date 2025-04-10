@@ -31,9 +31,10 @@ function detailCardTemplate(pokemon, types) {
         <p>Weight: ${pokemon.weight}</p>
         <div class="nav-buttons">
           ${previousButton}
+          <p>${pokemon.id} / 493</p>
           ${nextButton}
         </div>
-        <p>${pokemon.id} / 493</p>
+        
       </div>`;
 }
 
