@@ -38,6 +38,15 @@ body {
   text-transform: capitalize;
 }
 
+#pokedex-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 #pokedex {
   display: flex;
   justify-content: center;
