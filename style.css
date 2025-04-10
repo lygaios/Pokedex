@@ -163,31 +163,3 @@ body {
     width: 140px;
   }
 }
-
-@media (max-width: 700px) {
-  .hidemobile {
-    display: none;
-  }
-}
-
-@media (min-width: 701px) {
-  .hidedesktop {
-    display: none;
-  }
-}
-
-/* 
-  🔧 Common Responsive Breakpoints Cheat Sheet
-
-  These are not strict rules, just helpful starting points for targeting devices:
-
-  @media (max-width: 1440px) → Large desktops / wide monitors
-  @media (max-width: 1024px) → Laptops, tablets (landscape)
-  @media (max-width: 768px)  → Tablets (portrait), smaller screens
-  @media (max-width: 600px)  → Small tablets, big phones
-  @media (max-width: 480px)  → Most smartphones (landscape/portrait)
-  @media (max-width: 375px)  → iPhone SE, small devices
-  @media (max-width: 320px)  → Absolute minimum screen width to support
-
-  Tip: Adjust these breakpoints based on your layout and when things start to look squishy!
-*/
