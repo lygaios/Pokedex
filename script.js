@@ -49,17 +49,16 @@ async function renderCollection(pokeCollection) {
     let pokemonEntry = pokeCollection.results[i];
 
     try {
-      let response = await fetch(pokemonEntry.url);
-      let pokemon = await response.json();
+      const response = await fetch(pokemonEntry.url);
+      const pokemon = await response.json();
 
-      let types = pokemon.types.map((t) => t.type.name).join(", ");
+      const types = pokemon.types.map(t => t.type.name).join(", ");
       contentContainer.innerHTML += dexCardTemplate(pokemon, types);
     } catch (error) {
       console.error(`Error fetching data for ${pokemonEntry.name}:`, error);
-      contentContainer.innerHTML += errorCardTemplate();
+      renderDexErrorCard()
     }
   }
-
   hideLoadingScreen();
 }
 
@@ -74,29 +73,26 @@ function sendSearch() {
   contentContainer.innerHTML = "";
   if (!soughtPokemon) {
     renderSearchErrorMessage(searchEmptyTemplate);
-    return;
-  }
-  if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
+  } else if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
     renderSearchErrorMessage(searchShortTemplate);
-    return;
-  }
+  } else
   getData(soughtPokemon);
 }
 
 async function getData(soughtPokemon) {
   closeAndClearOverlay();
   try {
-    let url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
-    let response = await fetch(url);
+    const url = `https://pokeapi.co/api/v2/pokemon/${soughtPokemon}`;
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Pokémon not found");
-    }
-    let pokemon = await response.json();
+    };
+    const pokemon = await response.json();
     if (pokemon.id > 493 || pokemon.id < 1) {
       renderSearchErrorCard();
       return;
     }
-    let types = pokemon.types.map((t) => t.type.name).join(", ");
+    const types = pokemon.types.map((t) => t.type.name).join(", ");
     renderSoughtPokemon(pokemon, types);
   } catch (error) {
     renderSearchErrorCard();
