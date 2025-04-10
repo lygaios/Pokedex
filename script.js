@@ -23,14 +23,6 @@ function toggleLoadingScreen(isVisible) {
   }
 }
 
-function renderLoadingScreen() {
-  toggleLoadingScreen(true);
-}
-
-function hideLoadingScreen() {
-  toggleLoadingScreen(false);
-}
-
 async function loadPokemonNames() {
   const maxPokemon = 493;
   const url = `https://pokeapi.co/api/v2/pokemon?limit=${maxPokemon}&offset=0`;
@@ -57,7 +49,7 @@ function autocompleteSearch() {
 
 async function getDexData(offset = 0, limit = 20) {
   try {
-    renderLoadingScreen();
+    toggleLoadingScreen(true);
     const maxPokemon = 493;
 
     let url = `https://pokeapi.co/api/v2/pokemon?limit=${Math.min(limit, maxPokemon - offset)}&offset=${offset}`;
@@ -67,7 +59,7 @@ async function getDexData(offset = 0, limit = 20) {
   } catch (error) {
     renderDexErrorCard();
   } finally {
-    hideLoadingScreen();
+    toggleLoadingScreen(false);
   }
 }
 
@@ -151,7 +143,7 @@ function renderDexErrorCard() {
 
 async function showDetail(pokemonId) {
   try {
-    renderLoadingScreen();
+    toggleLoadingScreen(true)
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     const response = await fetch(url);
     const pokemon = await response.json();
@@ -163,7 +155,7 @@ async function showDetail(pokemonId) {
   } catch (error) {
     renderSearchErrorCard();
   } finally {
-    hideLoadingScreen();
+    toggleLoadingScreen(false);
   }
 }
 
