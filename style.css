@@ -48,6 +48,9 @@ body {
 }
 
 .dex-card {
+  width: 220px;
+  height: auto;
+  aspect-ratio: 3 / 2;
   box-shadow: 0 0 5px #1d7bff;
   border: outset 3px #1d7bff;
 }
@@ -72,11 +75,9 @@ body {
   height: 80px;
   border-radius: 50%;
   box-shadow: 3px 3px 5px #bf1f30;
- 
 }
 
 .poke-image {
-
 }
 
 .overlay {
@@ -129,6 +130,18 @@ body {
   margin-top: 10px;
 }
 
+@media (max-width: 768px) {
+  .dex-card {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dex-card {
+    width: 140px;
+  }
+}
+
 @media (max-width: 700px) {
   .hidemobile {
     display: none;
@@ -140,3 +153,19 @@ body {
     display: none;
   }
 }
+
+/* 
+  🔧 Common Responsive Breakpoints Cheat Sheet
+
+  These are not strict rules, just helpful starting points for targeting devices:
+
+  @media (max-width: 1440px) → Large desktops / wide monitors
+  @media (max-width: 1024px) → Laptops, tablets (landscape)
+  @media (max-width: 768px)  → Tablets (portrait), smaller screens
+  @media (max-width: 600px)  → Small tablets, big phones
+  @media (max-width: 480px)  → Most smartphones (landscape/portrait)
+  @media (max-width: 375px)  → iPhone SE, small devices
+  @media (max-width: 320px)  → Absolute minimum screen width to support
+
+  Tip: Adjust these breakpoints based on your layout and when things start to look squishy!
+*/
