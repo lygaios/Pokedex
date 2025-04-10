@@ -12,7 +12,6 @@ function init() {
 function toggleLoadingScreen(isVisible) {
   const loadingOverlay = document.getElementById("loading-overlay");
   const loadMoreButton = document.getElementById("load-more-button");
-
   if (isVisible) {
     loadingOverlay.innerHTML = loadingScreenTemplate();
     loadingOverlay.classList.remove("dnone");
@@ -74,10 +73,8 @@ async function getDexData(offset = 0, limit = 20) {
 
 async function renderCollection(pokeCollection) {
   let contentContainer = document.getElementById("pokedex");
-
   for (let i = 0; i < pokeCollection.results.length; i++) {
     let pokemonEntry = pokeCollection.results[i];
-
     try {
       const response = await fetch(pokemonEntry.url);
       const pokemon = await response.json();
@@ -102,7 +99,7 @@ function sendSearch() {
     renderSearchErrorMessage(searchEmptyTemplate);
   } else if (isNaN(soughtPokemon) && soughtPokemon.length < 3) {
     renderSearchErrorMessage(searchShortTemplate);
-  } else if (!pokemonNames.includes(soughtPokemon)) {
+  } else if (isNaN(soughtPokemon) && !pokemonNames.includes(soughtPokemon)) {
     renderSearchErrorCard();
   } else getData(soughtPokemon);
 }
