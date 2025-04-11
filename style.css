@@ -72,6 +72,7 @@ body {
 }
 
 .error {
+  background-color: #01069b;
   box-shadow: 0 0 5px #a11927;
   border: outset 3px #bf1f30;
 }
