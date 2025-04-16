@@ -20,12 +20,16 @@ body {
   color: #fef7eb;
 }
 
-.raleway {
+.plain-text {
   font-family: "Raleway", sans-serif;
 }
 
 a {
   color: #fef7eb;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 #search-box {
