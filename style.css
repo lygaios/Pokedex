@@ -28,6 +28,9 @@ a {
   color: #fef7eb;
 }
 
+a:hover {
+  color: #efd007;
+}
 
 #search-box {
   display: flex;
