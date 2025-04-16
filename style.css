@@ -1,6 +1,11 @@
 @font-face {
   font-family: "Orbitron", sans-serif;
-  src: url(./assets/fonts/ExpletusSans-VariableFont_wght.ttf);
+  src: url(./assets/fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url(./assets/fonts/Raleway-VariableFont_wght.ttf);
 }
 
 h1,
@@ -12,6 +17,14 @@ h3 {
 
 body {
   background-color: #0006d3;
+  color: #fef7eb;
+}
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+a {
   color: #fef7eb;
 }
 
