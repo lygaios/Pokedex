@@ -1,9 +1,9 @@
-html,
-body {
+html {
   scroll-behavior: smooth;
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
+  height: 100%;
   font-family: "Orbitron", sans-serif;
 }
 
@@ -61,8 +61,10 @@ a:hover {
 }
 
 #footer {
-  height: 100px;
+  min-height: 80px;
   padding-inline: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +76,7 @@ a:hover {
   max-width: 1440px;
   width: 100%;
   padding-inline: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
