@@ -6,6 +6,7 @@ function init() {
   getDexData(currentOffset, limit);
   loadPokemonNames();
   getAutocompleteSearch();
+  addAttributesToExternalLinks();
 }
 
 function toggleLoadingScreen(isVisible) {

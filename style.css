@@ -28,9 +28,6 @@ a {
   color: #fef7eb;
 }
 
-a:hover {
-  cursor: pointer;
-}
 
 #search-box {
   display: flex;
