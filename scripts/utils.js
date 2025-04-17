@@ -1,13 +1,6 @@
 /**
- * Utility functions for the website
- * @module utils
- */
-
-/** 
- * @param {string} url - The URL to check
- * @returns {boolean} - Returns true if the URL is external, false otherwise
- * This function sets the target and rel attributes for external links
- * to open in a new tab and prevent security vulnerabilities.
+ * Adds target and rel attributes to all links with the 'external-link' class.
+ * This ensures they open in a new tab and follow security best practices.
  */
 
 function addAttributesToExternalLinks() {
